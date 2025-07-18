@@ -17,14 +17,24 @@ export default {
 
 <style>
 nav {
-  padding: 1rem;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
 }
-router-link {
-  margin-right: 1rem;
+
+nav a {
+  margin: 0 0.5rem;
+  color: #646cff;
   text-decoration: none;
-  color: #42b983;
+  font-weight: 500;
 }
-router-link.router-link-active {
+nav a.router-link-active {
   font-weight: bold;
 }
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+
 </style>

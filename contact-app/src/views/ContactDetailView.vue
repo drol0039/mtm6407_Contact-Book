@@ -1,20 +1,20 @@
 <template>
     <div v-if="contact">
-    <h1>{{ contact.name }}</h1>
-    <p>Email: {{ contact.email }}</p>
-    <p>Phone: {{ contact.phone }}</p>
+      <h1>{{ contact.lastName }}, {{ contact.firstName }}</h1>
+      <p>Email: {{ contact.email }}</p>
+      <p>Phone: {{ contact.phone }}</p>
 
     <router-link :to="`/edit/${route.params.id}`">Edit</router-link>
     <button @click="deleteContact">Delete</button>
-
   </div>
+
   <div v-else>
     <p>Contact not found.</p>
   </div>
   </template>
   
   <script setup>
-  import { useRoute } from 'vue-router'
+  import { useRoute, useRouter } from 'vue-router'
   import { ref, onMounted } from 'vue'
   
   const route = useRoute()
@@ -25,9 +25,9 @@
   const stored = localStorage.getItem('contacts')
   const contacts = stored ? JSON.parse(stored) : []
   contact.value = contacts[route.params.id] || null
-})
+  })
 
-const deleteContact = () => {
+  const deleteContact = () => {
   const stored = localStorage.getItem('contacts')
   const contacts = stored ? JSON.parse(stored) : []
 
@@ -35,7 +35,7 @@ const deleteContact = () => {
   localStorage.setItem('contacts', JSON.stringify(contacts))
 
   router.push('/') // go back to home after deletion
-}
+  }
 
   </script>
   
