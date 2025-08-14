@@ -36,8 +36,13 @@ onMounted(() => {
 
 const deleteContact = () => {
   const stored = localStorage.getItem('contacts')
-  const contacts = stored ? JSON.parse(stored) : []
+  const contacts = stored ? JSON.parse(stored).sort((a, b) => {
+    const aName = a.lastName || a.name?.split(' ')[1] || ''
+    const bName = b.lastName || b.name?.split(' ')[1] || ''
+    return aName.localeCompare(bName)
+  }) : []
 
+  // Delete from the SORTED array (same as display)
   contacts.splice(parseInt(route.params.id), 1)
   localStorage.setItem('contacts', JSON.stringify(contacts))
 

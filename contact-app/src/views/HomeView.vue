@@ -39,6 +39,9 @@
         <span class="contact-phone" v-if="contact.phone">
           <i class="fas fa-phone"></i> {{ contact.phone }}
         </span>
+        <span class="contact-occupation" v-if="contact.occupation">
+          <i class="fas fa-briefcase"></i> {{ contact.occupation }}
+        </span>
       </li>
     </ul>
 
@@ -79,6 +82,21 @@
       (contact.email && contact.email.toLowerCase().includes(query))
     )
   })
+    // Returns the index of the contact in the full contacts array
+  const getOriginalIndex = (contact) => {
+    return contacts.value.findIndex(c =>
+      c.firstName === contact.firstName &&
+      c.lastName === contact.lastName &&
+      c.email === contact.email &&
+      c.phone === contact.phone
+    )
+  }
+
+  // Function to clear the search
+  const clearSearch = () => {
+    searchQuery.value = ''
+  }
+
 </script>
 
 <style scoped>
@@ -211,6 +229,18 @@
   color: #666;
   font-style: italic;
   font-size: 0.9em;
+}
+
+.contact-occupation {
+  color: #666;
+  font-size: 0.95em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.contact-occupation i {
+  color: #6366f1;
+  width: 16px;
 }
 
   </style>
