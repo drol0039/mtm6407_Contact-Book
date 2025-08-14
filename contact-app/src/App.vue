@@ -3,7 +3,7 @@
     <!-- Header/Cover Section -->
     <header class="app-header">
       <h1><i class="fas fa-address-book"></i> Contact Book</h1>
-      <p>Manage your contacts with ease</p>
+      <p>Manage your contacts!</p>
     </header>
 
     <nav>
@@ -29,7 +29,7 @@ export default {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Header/Cover Styling */
+/* Header-Cover Styling */
 .app-header {
   background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
   color: white;
